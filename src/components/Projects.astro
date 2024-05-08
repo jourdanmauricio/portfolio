@@ -1,0 +1,135 @@
+---
+import NextJs from './../icons/NextJS.astro';
+import NestJs from './../icons/Nest.astro';
+import Postgres from './../icons/Postgresql.astro';
+import Tailwind from './../icons/Tailwind.astro';
+import AstroJS from '../icons/AstrojS.astro';
+import Node from '../icons/Node.astro';
+import Sqlite from '../icons/Sqlite.astro';
+import Sequelize from '../icons/Sequelize.astro';
+import LinkPill from './LinkPill.astro';
+import GitHubIcon from '../icons/GitHub.astro';
+import DemoIcon from '../icons/Demo.astro';
+
+const TAGS = {
+  ASTROJS: {
+    name: 'Astro',
+    class: 'bg-black text-white',
+    icon: AstroJS,
+  },
+  TAILWIND: {
+    name: 'Tailwind CSS',
+    class: 'bg-[#003159] text-white',
+    icon: Tailwind,
+  },
+  NODE: {
+    name: 'Node js',
+    class: 'bg-[#0c131c] text-white',
+    icon: Node,
+  },
+  NEST: {
+    name: 'Nest js',
+    class: 'bg-[#0c131c] text-white',
+    icon: NestJs,
+  },
+  SLITE: {
+    name: 'Sqlite',
+    class: 'bg-[#fffefe] text-[#044b5d]',
+    icon: Sqlite,
+  },
+  SEQUELIZE: {
+    name: 'Sequelize',
+    class: 'bg-[#12223d] text-white',
+    icon: Sequelize,
+  },
+  POSTGRES: {
+    name: 'Postgres',
+    class: 'bg-[#12223d] text-white',
+    icon: Postgres,
+  },
+};
+const PROYECTS = [
+  {
+    title: 'Hatha Yoga Lobería',
+    description:
+      'Sitio web Escuela de Yoga, blog con adminstración de contenido. Full Stack',
+    link: 'https://jourdanmauricio.github.io/hathayogaloberia/',
+    github: 'https://github.com/jourdanmauricio/hathayogaloberia',
+    image: 'proyects/hathaYogaLoberia.webp',
+    tags: [TAGS.ASTROJS, TAGS.TAILWIND, TAGS.NODE, TAGS.SLITE, TAGS.SEQUELIZE],
+  },
+  {
+    title: 'Syren - Tratamientos laser',
+    description: 'Sitio web con reserva de turnos. Full Stack',
+    link: 'https://jourdanmauricio.github.io/syren-frontend/',
+    github: 'https://github.com/jourdanmauricio/syren-frontend',
+    github2: 'https://github.com/jourdanmauricio/syren-backend',
+    image: 'proyects/hathaYogaLoberia.webp',
+    tags: [
+      TAGS.ASTROJS,
+      TAGS.TAILWIND,
+      TAGS.NEST,
+      TAGS.POSTGRES,
+      TAGS.SEQUELIZE,
+    ],
+  },
+  {
+    title: 'Hatha Yoga Lobería',
+    description:
+      'Sitio web Escuela de Yoga, blog con adminstracón de contenido. Full Stack',
+    link: 'https://jourdanmauricio.github.io/hathayogaloberia/',
+    github: 'https://github.com/jourdanmauricio/hathayogaloberia',
+    image: 'proyects/hathaYogaLoberia.webp',
+    tags: [TAGS.ASTROJS, TAGS.TAILWIND, TAGS.NODE, TAGS.SLITE, TAGS.SEQUELIZE],
+  },
+];
+---
+
+<section class="grid grid-cols-auto-fill-300 gap-20 px-5">
+  {
+    PROYECTS.map(({ title, description, link, github, image, tags }) => (
+      <article class="max-w-1/2">
+        <h3 class="text-xl font-semibold text-yellow-200 mb-4">{title}</h3>
+
+        <a
+          class="relative group rounded flex justify-center w-full overflow-hidden"
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="w-full h-auto rounded shadow-2xl shadow-white/10 group-hover:scale-110 transition duration-500 object-cover"
+            src={image}
+            alt={`Captura de pantalla del proyecto ${image}`}
+          />
+          <div class="absolute bg-black w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
+        </a>
+        <ul class="flex flex-wrap gap-2 flex-row my-4">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-0 px-2`}
+              >
+                <tag.icon class="size-6" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <p class="text-base mb-4 text-pretty">{description}</p>
+
+        <div class="flex gap-4 justify-between">
+          <LinkPill href={github}>
+            <GitHubIcon class="size-5" />
+            Repositorio
+          </LinkPill>
+          <LinkPill href={link}>
+            <DemoIcon class="size-5" />
+            Demo
+          </LinkPill>
+        </div>
+      </article>
+    ))
+  }
+</section>

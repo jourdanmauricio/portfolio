@@ -1,0 +1,77 @@
+---
+import ExperienceItem from './ExperienceItem.astro';
+
+const EXPERIENCES = [
+  {
+    date: 'Ene 2014 - Actualmente...',
+    title: 'Teaching Assistant',
+    company: 'Henry',
+    description: [
+      'Coordinar a un grupo de estudiantes para lograr la integración al equipo de estudio.',
+      'Asistir a la resolución de ejercicios y promover la colaboración grupal (Pair Programming).',
+      'Proponer ideas para la mejora de los procesos del Bootcamp.',
+    ],
+    link: '#',
+  },
+  {
+    date: 'Ene 2014 - Nov 2023',
+    title: 'Analista funcional Sr',
+    company: 'Labranzas',
+    description: [
+      'Desarrollo y mantenimiento de sistemas con énfasis en la automatización de tareas, mantener bases de datos, documentos funcionales y técnicos.',
+      'Integración con Marketplace para gestión de productos, preguntas, respuestas y ventas. Agilizando el tiempo de respuesta logramos posicionar organicamente los productos dentro de las primeras posiciones.',
+    ],
+    link: '#',
+  },
+  {
+    date: 'Jun 2011 - Oct 2013',
+    title: 'Analista funcional Sr',
+    company: 'Telecom SA',
+    description: [
+      'Lideré un equipo de 5 personas dentro de la Gerencia de Gestión operativa.',
+      'Automatización del proceso de control de consistencia del parque de clientes entre los sistemas de gestión y facturación reduciendo 15 días entre ejecuciones.',
+      'Colaboración en el proceso de migración del parque de clientes entre sistemas de gestión comercial.',
+    ],
+    link: '#',
+  },
+  {
+    date: 'May 2010 - May 2011',
+    title: 'Indra SA',
+    company: 'Telefonica',
+    description: [
+      'Análisis de datos ente sistemas de gestión comercial, servicios de internet y sincronización de datos al sistema de facturación',
+      'Generar requerimientos para optimizar la sincronización de datos reduciendo un día el impacto de novedades en facturación',
+    ],
+    link: '#',
+  },
+  {
+    date: '2004 - 2008',
+    title: 'Jefe de equipo',
+    company: 'Telefonica',
+    description: [
+      'Inicié como Analista Funcional y mi desempeño me impulsó a liderar un equipo de 10 personas como Jefe de Equipo, automatizando y optimizando procesos logrando establecer métricas para la gestión de inconsistencias.',
+      'Desarrollo de sistema de integración con los distintos Back Office facilitando la comunicación y resolución de problemas.',
+    ],
+    link: '#',
+  },
+  {
+    date: '2000 - 2004',
+    company: 'IBM - Adecco - CDA Informática',
+    title: 'Analista Programador - Lider de equipo',
+    description: [
+      'Estimación, Planificación, Análisis e Implementación de requerimientos. Confección de documentación Técnica y documentación de Usuario. Seguimiento de requerimientos post-implementacion.',
+    ],
+    link: '#',
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCES.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

@@ -1,0 +1,86 @@
+---
+import MenuIcon from '../icons/Menu.astro';
+---
+
+<header
+  class="fixed z-10 top-0 left-0 right-0 h-[64px] bg-black/10 backdrop-blur-sm"
+>
+  <div
+    class="flex justify-between items-center py-2 px-5 w-full xl:max-w-[1120px] mx-auto"
+  >
+    <div class="flex gap-x-4 items-center justify-center">
+      <img
+        class="rounded-full size-12"
+        src="https://res.cloudinary.com/dn7npxeof/image/upload/v1712452888/portfolio/MJ_vkxgsu.jpg"
+        alt="Imagen Mauri"
+      />
+      <div class="text-white/90">
+        <p class="text-sm">Mauricio Jourdán</p>
+        <p class="text-xs">Software developer</p>
+      </div>
+    </div>
+    <MenuIcon
+      id="btn-menu"
+      class="size-6 lg:hidden hover:cursor-pointer"
+    />
+    <nav
+      id="menu"
+      class="z-10 flex flex-col lg:flex-row items-center w-full lg:w-auto gap-x-10 absolute lg:relative top-16 lg:top-0 h-screen lg:h-auto -left-full lg:left-0 opacity-80 bg-black lg:bg-transparent pt-8 lg:pt-0 transition-[left] duration-300"
+    >
+      <a
+        href="#top"
+        class="hover:text-yellow-200 py-4 lg:py-0"
+        >Inicio</a
+      >
+      <a
+        href="#experience"
+        class="hover:text-yellow-200 py-4 lg:py-0"
+        >Experiencia</a
+      >
+      <a
+        href="#projects"
+        class="hover:text-yellow-200 py-4 lg:py-0"
+        >Proyectos</a
+      >
+      <a
+        href="#about"
+        class="hover:text-yellow-200 py-4 lg:py-0"
+        >Sobre mí</a
+      >
+      <a
+        href="#about"
+        class="hover:text-yellow-200 py-4 lg:py-0"
+        >Blog</a
+      >
+      <a
+        href="#contact"
+        class="hover:text-yellow-200 py-4 lg:py-0"
+        >Contacto</a
+      >
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.querySelector('#btn-menu') as Element;
+  const menu = document.querySelector('#menu') as Element;
+  menuBtn.addEventListener('click', () => openMenu());
+
+  menu.addEventListener('click', (e) => {
+    const target = e.target as HTMLTextAreaElement;
+    if (target.matches('a')) {
+      menu.classList.add('-left-full');
+      menu.classList.remove('left-0');
+    }
+  });
+
+  function openMenu() {
+    if (menu.classList.contains('-left-full')) {
+      menu.classList.add('left-0');
+      menu.classList.remove('-left-full');
+    } else {
+      menu.classList.add('-left-full');
+      menu.classList.remove('left-0');
+    }
+  }
+</script>
