@@ -1,17 +1,32 @@
 ---
-import NextJs from './../icons/NextJS.astro';
 import NestJs from './../icons/Nest.astro';
 import Postgres from './../icons/Postgresql.astro';
 import Tailwind from './../icons/Tailwind.astro';
 import AstroJS from '../icons/AstrojS.astro';
+import Jest from '../icons/Jest.astro';
 import Node from '../icons/Node.astro';
 import Sqlite from '../icons/Sqlite.astro';
+import Typeorm from '../icons/Typeorm.astro';
 import Sequelize from '../icons/Sequelize.astro';
+import Jwt from '../icons/JWT.astro';
+import Swagger from '../icons/Swagger.astro';
+import Cloudinary from '../icons/Cloudinary.astro';
+import Docker from '../icons/Docker.astro';
 import LinkPill from './LinkPill.astro';
 import GitHubIcon from '../icons/GitHub.astro';
 import DemoIcon from '../icons/Demo.astro';
 
 const TAGS = {
+  JWT: {
+    name: 'JWT',
+    class: 'bg-black text-white',
+    icon: Jwt,
+  },
+  JEST: {
+    name: 'Jest',
+    class: 'bg-black text-white',
+    icon: Jest,
+  },
   ASTROJS: {
     name: 'Astro',
     class: 'bg-black text-white',
@@ -47,6 +62,27 @@ const TAGS = {
     class: 'bg-[#12223d] text-white',
     icon: Postgres,
   },
+  TYPEORM: {
+    name: 'TypeORM',
+    class: 'bg-[#fffefe] text-black',
+    icon: Typeorm,
+  },
+
+  SWAGGER: {
+    name: 'Swagger',
+    class: 'bg-[#fffefe] text-black',
+    icon: Swagger,
+  },
+  CLOUDINARY: {
+    name: 'Cloudinary',
+    class: 'bg-[#fffefe] text-black',
+    icon: Cloudinary,
+  },
+  DOCKER: {
+    name: 'Docker',
+    class: 'bg-[#fffefe] text-black',
+    icon: Docker,
+  },
 };
 const PROYECTS = [
   {
@@ -64,23 +100,26 @@ const PROYECTS = [
     link: 'https://jourdanmauricio.github.io/syren-frontend/',
     github: 'https://github.com/jourdanmauricio/syren-frontend',
     github2: 'https://github.com/jourdanmauricio/syren-backend',
-    image: 'proyects/hathaYogaLoberia.webp',
-    tags: [
-      TAGS.SEQUELIZE,
-      TAGS.TAILWIND,
-      TAGS.NEST,
-      TAGS.ASTROJS,
-      TAGS.POSTGRES,
-    ],
+    image: 'proyects/syren.webp',
+    tags: [TAGS.TYPEORM, TAGS.TAILWIND, TAGS.NEST, TAGS.ASTROJS, TAGS.POSTGRES],
   },
   {
-    title: 'Hatha Yoga Lobería',
+    title: 'Backend e-commerce',
     description:
-      'Sitio web Escuela de Yoga, blog con adminstracón de contenido. Full Stack',
-    link: 'https://jourdanmauricio.github.io/hathayogaloberia/',
-    github: 'https://github.com/jourdanmauricio/hathayogaloberia',
-    image: 'proyects/hathaYogaLoberia.webp',
-    tags: [TAGS.ASTROJS, TAGS.TAILWIND, TAGS.NODE, TAGS.SLITE, TAGS.SEQUELIZE],
+      'Backend e-commerce. Gestión de categorías, productos, usuarios, roles, órdenes, atutenticación',
+    link: 'https://pm4-ecommerce-latest.onrender.com/api/',
+    github: 'https://github.com/jourdanmauricio/PM4-ecommerce',
+    image: 'proyects/e-commerce.webp',
+    tags: [
+      TAGS.NEST,
+      TAGS.TYPEORM,
+      TAGS.POSTGRES,
+      TAGS.JEST,
+      TAGS.JWT,
+      TAGS.SWAGGER,
+      TAGS.CLOUDINARY,
+      TAGS.DOCKER,
+    ],
   },
 ];
 ---
