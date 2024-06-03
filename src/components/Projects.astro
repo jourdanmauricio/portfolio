@@ -1,5 +1,5 @@
 ---
-import NestJs from './../icons/Nest.astro';
+import Nest2Js from './../icons/Nestjs2.astro';
 import Postgres from './../icons/Postgresql.astro';
 import Tailwind from './../icons/Tailwind.astro';
 import AstroJS from '../icons/AstrojS.astro';
@@ -15,6 +15,8 @@ import Docker from '../icons/Docker.astro';
 import LinkPill from './LinkPill.astro';
 import GitHubIcon from '../icons/GitHub.astro';
 import DemoIcon from '../icons/Demo.astro';
+import Azure from '../icons/Azure.astro';
+import Nextjs from '../icons/Next.astro';
 
 const TAGS = {
   JWT: {
@@ -45,7 +47,7 @@ const TAGS = {
   NEST: {
     name: 'Nest js',
     class: 'bg-[#0c131c] text-white',
-    icon: NestJs,
+    icon: Nest2Js,
   },
   SLITE: {
     name: 'Sqlite',
@@ -83,6 +85,16 @@ const TAGS = {
     class: 'bg-[#fffefe] text-black',
     icon: Docker,
   },
+  AZURE: {
+    name: 'Azure',
+    class: 'bg-[#fffefe] text-black',
+    icon: Azure,
+  },
+  NEXT: {
+    name: 'Next',
+    class: 'bg-[#fffefe] text-black',
+    icon: Nextjs,
+  },
 };
 const PROYECTS = [
   {
@@ -106,7 +118,7 @@ const PROYECTS = [
   {
     title: 'Backend e-commerce',
     description:
-      'Backend e-commerce. Gestión de categorías, productos, usuarios, roles, órdenes, atutenticación',
+      'Proyecto inidividual, especilización backend (Henry). E-commerce, gestión de categorías, productos, usuarios, roles, órdenesde compra, atutenticación',
     link: 'https://pm4-ecommerce-latest.onrender.com/api/',
     github: 'https://github.com/jourdanmauricio/PM4-ecommerce',
     image: 'proyects/e-commerce.webp',
@@ -121,13 +133,32 @@ const PROYECTS = [
       TAGS.DOCKER,
     ],
   },
+  {
+    title: 'Coco+',
+    description:
+      'Proyecto Final (Henry). Tabajo en equipo. Aplicación para gestionar Coworkings, Empresas y reservas. Geolocalizaicón Configuración de empresas, coworkings y reserva de espacios.',
+    link: 'https://coco-plus-front.vercel.app/',
+    github: 'https://github.com/jourdanmauricio/PM4-ecommerce',
+    image: 'proyects/coco-plus.webp',
+    tags: [
+      TAGS.NEST,
+      TAGS.TYPEORM,
+      TAGS.POSTGRES,
+      TAGS.JWT,
+      TAGS.SWAGGER,
+      TAGS.CLOUDINARY,
+      TAGS.AZURE,
+      TAGS.NEXT,
+      TAGS.TAILWIND
+    ],
+  },
 ];
 ---
 
 <section class="grid grid-cols-auto-fill-300 gap-20 px-5">
   {
     PROYECTS.map(({ title, description, link, github, image, tags }) => (
-      <article class="max-w-1/2">
+      <article class="max-w-1/2 flex flex-col">
         <h3 class="text-xl font-semibold text-yellow-200 mb-4">{title}</h3>
 
         <a
@@ -156,7 +187,7 @@ const PROYECTS = [
           ))}
         </ul>
 
-        <p class="text-base mb-4 text-pretty">{description}</p>
+        <p class="text-base mb-4 text-pretty flex-grow">{description}</p>
 
         <div class="flex gap-4 justify-between">
           <LinkPill href={github}>

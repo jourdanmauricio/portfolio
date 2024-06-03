@@ -3,10 +3,10 @@ import MenuIcon from '../icons/Menu.astro';
 ---
 
 <header
-  class="fixed z-10 top-0 left-0 right-0 h-[64px] bg-black/10 backdrop-blur-sm"
+  class="fixed z-10 top-0 left-0 right-0 h-[64px] bg-black/70 backdrop-blur"
 >
   <div
-    class="flex justify-between items-center py-2 px-5 w-full xl:max-w-[1120px] mx-auto"
+    class="flex justify-between items-center py-2 px-16 w-full xl:max-w-[1120px] mx-auto"
   >
     <div class="flex gap-x-4 items-center justify-center">
       <img
@@ -21,42 +21,42 @@ import MenuIcon from '../icons/Menu.astro';
     </div>
     <MenuIcon
       id="btn-menu"
-      class="size-6 lg:hidden hover:cursor-pointer"
+      class="size-8 lg:hidden hover:cursor-pointer"
     />
     <nav
       id="menu"
-      class="z-10 flex flex-col lg:flex-row items-center w-full lg:w-auto gap-x-10 absolute lg:relative top-16 lg:top-0 h-screen lg:h-auto -left-full lg:left-0 opacity-80 bg-black lg:bg-transparent pt-8 lg:pt-0 transition-[left] duration-300"
+      class="z-10 flex flex-col lg:flex-row items-center w-full lg:w-auto gap-x-10 absolute lg:relative top-16 lg:top-0 h-screen lg:h-auto -left-full lg:left-0 opacity-80 bg-black lg:bg-transparent pt-8 lg:pt-0 transition-[left] duration-300 font-semibold text-lg text-yellow-200"
     >
       <a
         href="#top"
-        class="hover:text-yellow-200 py-4 lg:py-0"
+        class="hover:text-yellow-100 py-4 lg:py-0"
         >Inicio</a
       >
       <a
         href="#experience"
-        class="hover:text-yellow-200 py-4 lg:py-0"
+        class="hover:text-yellow-100 py-4 lg:py-0"
         >Experiencia</a
       >
       <a
         href="#projects"
-        class="hover:text-yellow-200 py-4 lg:py-0"
+        class="hover:text-yellow-100 py-4 lg:py-0"
         >Proyectos</a
       >
       <a
         href="#about"
-        class="hover:text-yellow-200 py-4 lg:py-0"
+        class="hover:text-yellow-100 py-4 lg:py-0"
         >Sobre mí</a
       >
-      <a
+      <!-- <a
         href="#about"
         class="hover:text-yellow-200 py-4 lg:py-0"
         >Blog</a
-      >
-      <a
+      > -->
+      <!-- <a
         href="#contact"
         class="hover:text-yellow-200 py-4 lg:py-0"
         >Contacto</a
-      >
+      > -->
     </nav>
   </div>
 </header>
