@@ -4,7 +4,6 @@ import SectionContainer from '../components/SectionContainer.astro';
 import Experience from '../components/Experience.astro';
 import Projects from '../components/Projects.astro';
 import About from '../components/About.astro';
-import Badge from '../components/Badge.astro';
 import SocialPill from '../components/SocialPill.astro';
 import GitHubIcon from '../icons/GitHub.astro';
 import AboutIcon from '../icons/About.astro';
@@ -22,18 +21,11 @@ import CodeIcon from '../icons/Code.astro';
   <main class="px-4">
     <SectionContainer class="py-40 min-h-[100vh]">
       <h1
-        class="text-yellow-200 text-3xl md:text-4xl xl:text-5xl font-bold flex flex-row gap-x-4 justify-center pb-8"
+        class="text-yellow-200 text-2xl md:text-3xl xl:text-4xl font-bold flex flex-row gap-x-4 justify-center pb-8"
       >
         Mauricio Jourdán
       </h1>
-      <!-- <a
-        href="https://www.linkedin.com/in/mauricio-adrian-jourdan-2104b219/"
-        target="_blank"
-        rel="noopener"
-        class="flex justify-center items-center pb-8 lg:pb-16"
-      >
-        <Badge>Disponible para trabajar</Badge>
-      </a> -->
+
       <h2 class="text-xl lg:text-2xl text-wrap text-center mt-12">
         <p class="text-white/80">
           Desarrollador Web Full Stack. </p> 
@@ -66,7 +58,7 @@ import CodeIcon from '../icons/Code.astro';
 
     <SectionContainer
       id="experience"
-      class="py-24"
+      class="pt-16"
     >
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
         <BriefcaseIcon class="size-7" /> Experiencia laboral
@@ -76,7 +68,7 @@ import CodeIcon from '../icons/Code.astro';
 
     <SectionContainer
       id="projects"
-      class="py-24"
+      class="pt-16"
     >
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
         <CodeIcon class="size-7" />Ultimos Proyectos
@@ -86,7 +78,7 @@ import CodeIcon from '../icons/Code.astro';
 
     <SectionContainer
       id="about"
-      class="py-24"
+      class="pt-16"
     >
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
         <AboutIcon class="size-6" />Sobre Mí

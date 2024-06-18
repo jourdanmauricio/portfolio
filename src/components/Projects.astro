@@ -1,168 +1,20 @@
 ---
-import Nest2Js from './../icons/Nestjs2.astro';
-import Postgres from './../icons/Postgresql.astro';
-import Tailwind from './../icons/Tailwind.astro';
-import AstroJS from '../icons/AstrojS.astro';
-import Jest from '../icons/Jest.astro';
-import Node from '../icons/Node.astro';
-import Sqlite from '../icons/Sqlite.astro';
-import Typeorm from '../icons/Typeorm.astro';
-import Sequelize from '../icons/Sequelize.astro';
-import Jwt from '../icons/JWT.astro';
-import Swagger from '../icons/Swagger.astro';
-import Cloudinary from '../icons/Cloudinary.astro';
-import Docker from '../icons/Docker.astro';
-import LinkPill from './LinkPill.astro';
+import {PROJECTS} from './../helpers/projects'
 import GitHubIcon from '../icons/GitHub.astro';
 import DemoIcon from '../icons/Demo.astro';
-import Azure from '../icons/Azure.astro';
-import Nextjs from '../icons/Next.astro';
-
-const TAGS = {
-  JWT: {
-    name: 'JWT',
-    class: 'bg-black text-white',
-    icon: Jwt,
-  },
-  JEST: {
-    name: 'Jest',
-    class: 'bg-black text-white',
-    icon: Jest,
-  },
-  ASTROJS: {
-    name: 'Astro',
-    class: 'bg-black text-white',
-    icon: AstroJS,
-  },
-  TAILWIND: {
-    name: 'Tailwind CSS',
-    class: 'bg-[#003159] text-white',
-    icon: Tailwind,
-  },
-  NODE: {
-    name: 'Node js',
-    class: 'bg-[#0c131c] text-white',
-    icon: Node,
-  },
-  NEST: {
-    name: 'Nest js',
-    class: 'bg-[#0c131c] text-white',
-    icon: Nest2Js,
-  },
-  SLITE: {
-    name: 'Sqlite',
-    class: 'bg-[#fffefe] text-[#044b5d]',
-    icon: Sqlite,
-  },
-  SEQUELIZE: {
-    name: 'Sequelize',
-    class: 'bg-[#12223d] text-white',
-    icon: Sequelize,
-  },
-  POSTGRES: {
-    name: 'Postgres',
-    class: 'bg-[#12223d] text-white',
-    icon: Postgres,
-  },
-  TYPEORM: {
-    name: 'TypeORM',
-    class: 'bg-[#fffefe] text-black',
-    icon: Typeorm,
-  },
-
-  SWAGGER: {
-    name: 'Swagger',
-    class: 'bg-[#fffefe] text-black',
-    icon: Swagger,
-  },
-  CLOUDINARY: {
-    name: 'Cloudinary',
-    class: 'bg-[#fffefe] text-black',
-    icon: Cloudinary,
-  },
-  DOCKER: {
-    name: 'Docker',
-    class: 'bg-[#fffefe] text-black',
-    icon: Docker,
-  },
-  AZURE: {
-    name: 'Azure',
-    class: 'bg-[#fffefe] text-black',
-    icon: Azure,
-  },
-  NEXT: {
-    name: 'Next',
-    class: 'bg-[#fffefe] text-black',
-    icon: Nextjs,
-  },
-};
-const PROYECTS = [
-  {
-    title: 'Hatha Yoga Lobería',
-    description:
-      'Sitio web Escuela de Yoga, blog con adminstración de contenido. Full Stack',
-    link: 'https://jourdanmauricio.github.io/hathayogaloberia/',
-    github: 'https://github.com/jourdanmauricio/hathayogaloberia',
-    image: 'proyects/hathaYogaLoberia.webp',
-    tags: [TAGS.ASTROJS, TAGS.TAILWIND, TAGS.NODE, TAGS.SLITE, TAGS.SEQUELIZE],
-  },
-  {
-    title: 'Syren - Tratamientos laser',
-    description: 'Sitio web con reserva de turnos. Full Stack',
-    link: 'https://jourdanmauricio.github.io/syren-frontend/',
-    github: 'https://github.com/jourdanmauricio/syren-frontend',
-    github2: 'https://github.com/jourdanmauricio/syren-backend',
-    image: 'proyects/syren.webp',
-    tags: [TAGS.TYPEORM, TAGS.TAILWIND, TAGS.NEST, TAGS.ASTROJS, TAGS.POSTGRES],
-  },
-  {
-    title: 'Backend e-commerce',
-    description:
-      'Proyecto inidividual, especilización backend (Henry). E-commerce, gestión de categorías, productos, usuarios, roles, órdenes de compra, autenticación',
-    link: 'https://pm4-ecommerce-latest.onrender.com/api/',
-    github: 'https://github.com/jourdanmauricio/PM4-ecommerce',
-    image: 'proyects/e-commerce.webp',
-    tags: [
-      TAGS.NEST,
-      TAGS.TYPEORM,
-      TAGS.POSTGRES,
-      TAGS.JEST,
-      TAGS.JWT,
-      TAGS.SWAGGER,
-      TAGS.CLOUDINARY,
-      TAGS.DOCKER,
-    ],
-  },
-  {
-    title: 'Coco+',
-    description:
-      'Proyecto Final (Henry). Tabajo en equipo. Aplicación para gestionar Coworkings, Empresas y reservas. Geolocalización Configuración de empresas, coworkings y reserva de espacios.',
-    link: 'https://coco-plus-front.vercel.app/',
-    github: 'https://github.com/jourdanmauricio/PM4-ecommerce',
-    image: 'proyects/coco-plus.webp',
-    tags: [
-      TAGS.NEST,
-      TAGS.TYPEORM,
-      TAGS.POSTGRES,
-      TAGS.JWT,
-      TAGS.SWAGGER,
-      TAGS.CLOUDINARY,
-      TAGS.AZURE,
-      TAGS.NEXT,
-      TAGS.TAILWIND
-    ],
-  },
-];
+import SocialPill from './SocialPill.astro';
 ---
 
-<section class="grid grid-cols-auto-fill-300 gap-20 px-5">
+<!-- <section class="grid grid-cols-auto-fill-300 gap-20 px-5"> -->
+ <section class="px-5 flex flex-col gap-16">
   {
-    PROYECTS.map(({ title, description, link, github, image, tags }) => (
-      <article class="max-w-1/2 flex flex-col">
-        <h3 class="text-xl font-semibold text-yellow-200 mb-4">{title}</h3>
+    PROJECTS.map(({ title, description, link, github, image, tags }) => (
+      <article class="flex flex-col">
+        <h3 class="text-2xl font-semibold text-yellow-200 mb-4">{title}</h3>
+         <p set:html={description}></p>
 
         <a
-          class="relative group rounded flex justify-center w-full overflow-hidden"
+          class="relative group rounded flex justify-center w-full overflow-hidden max-w-[600px] mx-auto mt-8"
           href={link}
           target="_blank"
           rel="noopener noreferrer"
@@ -174,7 +26,12 @@ const PROYECTS = [
           />
           <div class="absolute bg-black w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
         </a>
-        <ul class="flex flex-wrap gap-2 flex-row my-4">
+        <p class="mt-8"><span class="font-semibold text-yellow-200">Tecnologías utilizadas: </span>
+          {tags.map((tag, index) => (
+            <span>{tag.name}{index < tags.length - 1 ? ', ' : ''}</span>
+          ))}
+        </p>
+        {/* <ul class="flex flex-wrap gap-2 flex-row my-4">
           {tags.map((tag) => (
             <li>
               <span
@@ -185,21 +42,45 @@ const PROYECTS = [
               </span>
             </li>
           ))}
-        </ul>
+        </ul> */}
 
-        <p class="text-base mb-4 text-pretty flex-grow">{description}</p>
-
-        <div class="flex gap-4 justify-between">
-          <LinkPill href={github}>
+        <div class="flex gap-8 justify-end mt-8">
+          <SocialPill href={github}>
             <GitHubIcon class="size-5" />
             Repositorio
-          </LinkPill>
-          <LinkPill href={link}>
+          </SocialPill>
+          <SocialPill href={link}>
             <DemoIcon class="size-5" />
             Demo
-          </LinkPill>
+          </SocialPill>
         </div>
       </article>
     ))
   }
 </section>
+
+<style>
+details {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+details[open] summary::after {
+    content: "▲";
+    float: right;
+}
+
+summary::after {
+    content: "▼";
+    float: right;
+}
+
+details p {
+    margin: 10px 0 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
+}
+</style>

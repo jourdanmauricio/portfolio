@@ -26,13 +26,17 @@ const { title, description, link, date, company } = Astro.props;
   {company}
 </div>
 
-<div class="flex gap-4 mt-4">
+<!-- <div class="flex gap-4 mt-4">
   <TasksIcon class="size-5 text-white" />
   Descripción
-</div>
+</div> -->
 
-<ul
-  class="mb-4 text-base font-normal text-gray-200 dark:text-gray-200 text-pretty"
->
-  {description.map((desc) => <li class="list-disc list-inside">{desc}</li>)}
-</ul>
+<details class="mt-4">
+  <summary><span class="cursor-pointer">Descripción</span></summary>
+  <ul
+    class="text-base font-normal text-gray-200 dark:text-gray-200 text-pretty"
+  >
+    {description.map((desc) => <li class="first:mt-4 list-disc list-inside">{desc}</li>)}
+  </ul>
+</details>
+
