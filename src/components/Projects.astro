@@ -1,86 +1,168 @@
 ---
-import {PROJECTS} from './../helpers/projects'
+import { PROJECTS } from '../helpers/projects';
 import GitHubIcon from '../icons/GitHub.astro';
 import DemoIcon from '../icons/Demo.astro';
 import SocialPill from './SocialPill.astro';
 ---
 
-<!-- <section class="grid grid-cols-auto-fill-300 gap-20 px-5"> -->
- <section class="px-5 flex flex-col gap-16">
+<section class="projects">
   {
-    PROJECTS.map(({ title, description, link, github, image, tags }) => (
-      <article class="flex flex-col">
-        <h3 class="text-2xl font-semibold text-yellow-200 mb-4">{title}</h3>
-         <p set:html={description}></p>
+    PROJECTS.map(({ title, description, link, github, image, tags }, i) => (
+      <article class={`project ${i % 2 === 1 ? 'project-reverse' : ''}`}>
+        <div class="project-info">
+          <h3 class="project-title">{title}</h3>
+          <div class="project-desc" set:html={description} />
+          <ul class="project-tags">
+            {tags.map((tag) => (
+              <li>
+                <span class={`tag ${tag.class}`}>
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <div class="project-links">
+            <SocialPill href={github}>
+              <GitHubIcon class="size-4" />
+              Repositorio
+            </SocialPill>
+            <SocialPill href={link}>
+              <DemoIcon class="size-4" />
+              Demo
+            </SocialPill>
+          </div>
+        </div>
 
         <a
-          class="relative group rounded flex justify-center w-full overflow-hidden max-w-[600px] mx-auto mt-8"
+          class="project-img-wrap"
           href={link}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Ver demo de ${title}`}
         >
           <img
-            class="w-full h-auto rounded shadow-2xl shadow-white/10 group-hover:scale-110 transition duration-500 object-cover"
+            class="project-img"
             src={image}
-            alt={`Captura de pantalla del proyecto ${image}`}
+            alt={`Captura de pantalla del proyecto ${title}`}
           />
-          <div class="absolute bg-black w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
+          <div class="img-overlay" aria-hidden="true" />
         </a>
-        <p class="mt-8"><span class="font-semibold text-yellow-200">Tecnologías utilizadas: </span>
-          {tags.map((tag, index) => (
-            <span>{tag.name}{index < tags.length - 1 ? ', ' : ''}</span>
-          ))}
-        </p>
-        {/* <ul class="flex flex-wrap gap-2 flex-row my-4">
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-0 px-2`}
-              >
-                <tag.icon class="size-6" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul> */}
-
-        <div class="flex gap-8 justify-end mt-8">
-          <SocialPill href={github}>
-            <GitHubIcon class="size-5" />
-            Repositorio
-          </SocialPill>
-          <SocialPill href={link}>
-            <DemoIcon class="size-5" />
-            Demo
-          </SocialPill>
-        </div>
       </article>
     ))
   }
 </section>
 
 <style>
-details {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
 
-details[open] summary::after {
-    content: "▲";
-    float: right;
-}
+  .project {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
 
-summary::after {
-    content: "▼";
-    float: right;
-}
+  @media (max-width: 700px) {
+    .project {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+    /* always show image below text on mobile */
+    .project-reverse .project-img-wrap {
+      order: 2;
+    }
+    .projects {
+      gap: 3.5rem;
+    }
+  }
 
-details p {
-    margin: 10px 0 0;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ccc;
-}
+  .project-reverse .project-img-wrap {
+    order: -1;
+  }
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .project-desc {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .project-img-wrap {
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    position: relative;
+    aspect-ratio: 16/10;
+  }
+
+  .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.55s ease, filter 0.3s ease;
+    filter: grayscale(15%) brightness(0.9);
+  }
+
+  .img-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    opacity: 0;
+    mix-blend-mode: overlay;
+    transition: opacity 0.3s ease;
+  }
+
+  .project-img-wrap:hover .project-img {
+    transform: scale(1.05);
+    filter: grayscale(0%) brightness(1);
+  }
+
+  .project-img-wrap:hover .img-overlay {
+    opacity: 0.08;
+  }
 </style>

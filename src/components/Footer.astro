@@ -1,30 +1,35 @@
-<footer
-  class="mt-8 w-full xl:w-[1120px] mx-auto mb-10 px-5"
->
-  <div
-    class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-end"
-  >
-    <span class="text-sm text-yellow-200/90 sm:text-center"
-      >© 2024 <span>Mauricio Jourdán</span
-      >
-    </span>
-    <!-- <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium text-white/90 sm:mt-0"
-    >
-      <li>
-        <a
-          href="#"
-          class="hover:underline me-4 md:me-6"
-          >Sobre mí</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          class="hover:underline"
-          >Contacto</a
-        >
-      </li>
-    </ul> -->
+---
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">© 2024 Mauricio Jourdán</span>
+    <span class="footer-sep" aria-hidden="true">—</span>
+    <span class="footer-stack">Construido con Astro</span>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 7rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-copy,
+  .footer-stack,
+  .footer-sep {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
+</style>

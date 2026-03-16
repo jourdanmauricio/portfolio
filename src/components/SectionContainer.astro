@@ -4,7 +4,17 @@ const { class: className, id } = Astro.props;
 
 <section
   id={id}
-  class={`${className} w-full lg:w-[740px] mx-auto`}
+  class={`section-wrap ${className ?? ''}`}
 >
   <slot />
 </section>
+
+<style>
+  .section-wrap {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+</style>

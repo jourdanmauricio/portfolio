@@ -102,7 +102,7 @@ export const PROJECTS = [
       
       <details class='mt-8'>
         <summary>
-          <span class="cursor-pointer font-semibold text-yellow-200">Funcionalidades principales:</span>
+          <span>Funcionalidades principales</span>
         </summary>
         <ul class="mt-4" style="list-style-type:disc; list-style-position: inside;">
           <li>Registrar y administrar múltiples coworkings</li>
@@ -140,7 +140,7 @@ export const PROJECTS = [
 
       <details class='mt-8'>
         <summary>
-          <span class="cursor-pointer font-semibold text-yellow-200">Funcionalidades principales:</span>
+          <span>Funcionalidades principales</span>
         </summary>
 
         <ul class="mt-4" style="list-style-type:disc; list-style-position: inside;">
@@ -173,7 +173,7 @@ export const PROJECTS = [
       `Desarrollo de un sitio web completo para una Escuela de Yoga que incluya información sobre las clases, un blog para la publicación de artículos relacionados con el yoga y bienestar, y una sección de administración para gestionar contenido y alumnos.
       <details class='mt-8'>
         <summary>
-          <span class="cursor-pointer font-semibold text-yellow-200">Funcionalidades principales:</span>
+          <span>Funcionalidades principales</span>
         </summary>
       
         <ul class="mt-4" style="list-style-type:disc; list-style-position: inside;">

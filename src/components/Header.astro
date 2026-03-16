@@ -2,85 +2,193 @@
 import MenuIcon from '../icons/Menu.astro';
 ---
 
-<header
-  class="fixed z-10 top-0 left-0 right-0 h-[64px] bg-black/70 backdrop-blur"
->
-  <div
-    class="flex justify-between items-center py-2 px-16 w-full xl:max-w-[1120px] mx-auto"
-  >
-    <div class="flex gap-x-4 items-center justify-center">
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="header-logo">
       <img
-        class="rounded-full size-12"
+        class="avatar"
         src="https://res.cloudinary.com/dn7npxeof/image/upload/v1712452888/portfolio/MJ_vkxgsu.jpg"
-        alt="Imagen Mauri"
+        alt="Mauricio Jourdán"
       />
-      <div class="text-white/90">
-        <p class="text-sm">Mauricio Jourdán</p>
-        <p class="text-xs">Software developer</p>
+      <div class="header-brand">
+        <p class="header-name">MJ</p>
+        <p class="header-role">Full Stack Dev</p>
       </div>
-    </div>
-    <MenuIcon
-      id="btn-menu"
-      class="size-8 lg:hidden hover:cursor-pointer"
-    />
-    <nav
-      id="menu"
-      class="z-10 flex flex-col lg:flex-row items-center w-full lg:w-auto gap-x-10 absolute lg:relative top-16 lg:top-0 h-screen lg:h-auto -left-full lg:left-0 opacity-80 bg-black lg:bg-transparent pt-8 lg:pt-0 transition-[left] duration-300 font-semibold text-lg text-yellow-200"
-    >
-      <a
-        href="#top"
-        class="hover:text-yellow-100 py-4 lg:py-0"
-        >Inicio</a
-      >
-      <a
-        href="#experience"
-        class="hover:text-yellow-100 py-4 lg:py-0"
-        >Experiencia</a
-      >
-      <a
-        href="#projects"
-        class="hover:text-yellow-100 py-4 lg:py-0"
-        >Proyectos</a
-      >
-      <a
-        href="#about"
-        class="hover:text-yellow-100 py-4 lg:py-0"
-        >Sobre mí</a
-      >
-      <!-- <a
-        href="#about"
-        class="hover:text-yellow-200 py-4 lg:py-0"
-        >Blog</a
-      > -->
-      <!-- <a
-        href="#contact"
-        class="hover:text-yellow-200 py-4 lg:py-0"
-        >Contacto</a
-      > -->
+    </a>
+
+    <button id="btn-menu" class="menu-btn" aria-label="Abrir menú" aria-expanded="false">
+      <MenuIcon class="size-5" />
+    </button>
+
+    <nav id="menu" class="nav" role="navigation">
+      <a href="#top" class="nav-link">Inicio</a>
+      <a href="#experience" class="nav-link">Experiencia</a>
+      <a href="#projects" class="nav-link">Proyectos</a>
+      <a href="#about" class="nav-link">Sobre mí</a>
     </nav>
   </div>
 </header>
 
-<script>
-  const menuBtn = document.querySelector('#btn-menu') as Element;
-  const menu = document.querySelector('#menu') as Element;
-  menuBtn.addEventListener('click', () => openMenu());
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+    background: rgba(7, 7, 7, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
 
-  menu.addEventListener('click', (e) => {
-    const target = e.target as HTMLTextAreaElement;
-    if (target.matches('a')) {
-      menu.classList.add('-left-full');
-      menu.classList.remove('left-0');
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.25rem;
+    max-width: 960px;
+    margin: 0 auto;
+    height: 60px;
+    gap: 1rem;
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .header-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .header-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: 0.04em;
+  }
+
+  .header-role {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .menu-btn {
+    background: none;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .menu-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @media (min-width: 1024px) {
+    .menu-btn { display: none; }
+  }
+
+  .nav {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (max-width: 1023px) {
+    .nav {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: rgba(7, 7, 7, 0.98);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
     }
-  });
-
-  function openMenu() {
-    if (menu.classList.contains('-left-full')) {
-      menu.classList.add('left-0');
-      menu.classList.remove('-left-full');
-    } else {
-      menu.classList.add('-left-full');
-      menu.classList.remove('left-0');
+    .nav.open {
+      display: flex;
     }
   }
+
+  .nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+    padding: 0.75rem 0;
+  }
+
+  @media (min-width: 1024px) {
+    .nav-link {
+      padding: 4px 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  }
+
+  .nav-link:hover {
+    color: var(--accent);
+  }
+</style>
+
+<script>
+  const menuBtn = document.querySelector('#btn-menu') as HTMLButtonElement;
+  const menu = document.querySelector('#menu') as HTMLElement;
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  menu.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (target.matches('a')) {
+      menu.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
 </script>
